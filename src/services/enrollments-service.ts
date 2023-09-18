@@ -14,7 +14,7 @@ async function getAddressFromCEP(cep: string): Promise<ViaCEPAddressResponse | V
 
   const response = result.data as ViaCEPAddressError;
 
-  if(response.erro){ return response;}
+  if(response.erro){ throw notFoundError()}
   
   const location = result.data as ViaCEPAddressResponse;
   return{
@@ -57,6 +57,8 @@ async function createOrUpdateEnrollmentWithAddress(params: CreateOrUpdateEnrollm
   const address = getAddressForUpsert(params.address);
 
   // TODO - Verificar se o CEP é válido antes de associar ao enrollment.
+  await getAddressFromCEP(address.cep);
+  
   if (!address) {
     throw notFoundError();
   }
