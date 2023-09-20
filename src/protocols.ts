@@ -11,17 +11,19 @@ export type RequestError = {
   message: string;
 };
 
-
 export type ViaCEPAddressError = {
-  erro: boolean;
-}
+  error: boolean;
+};
 
-export type ViaCEPAddressResponse = {
+export type AddressEnrollment = {
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  cidade: string;
+  uf: string;
+};
 
-    logradouro: string,
-    complemento: string,
-    bairro: string,
-    cidade: string,
-    uf: string,
+export type CEP = {
+  cep: string;
+};
 
-}
