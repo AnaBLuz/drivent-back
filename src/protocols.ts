@@ -1,4 +1,4 @@
-import { Ticket } from "@prisma/client";
+import { Ticket } from '@prisma/client';
 
 export type ApplicationError = {
   name: string;
@@ -29,4 +29,8 @@ export type CEP = {
   cep: string;
 };
 
-export type CreateTicketParams = Omit<Ticket, "id" | "createdAt" | "updatedAt">;
+export type CreateTicketParams = Omit<Ticket, 'id' | 'createdAt' | 'updatedAt'>;
+
+export type InputTicketBody = {
+  ticketTypeId: number;
+};
