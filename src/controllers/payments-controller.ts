@@ -19,3 +19,9 @@ export async function paymentProcess(req: AuthenticatedRequest, res: Response) {
   const payment = await paymentsService.paymentProcess(ticketId, userId, cardData);
   res.status(httpStatus.OK).send(payment);
 }
+
+
+
+
+
+
